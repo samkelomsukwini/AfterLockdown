@@ -6,5 +6,12 @@
 </head>
 <body>
     <h1>Afterlockdown</h1>
+    {% if posts %}
+        {% for post in posts %}
+            <h1>{{ post.city }}</h1>
+        {% endfor %}
+    {% else %}
+        <h1>None</h1>
+    {% endif %}
 </body>
 </html>
