@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hormme - Latest Headlines{% endblock %}
+
+{% block body %}
+    {% if messages %}
+        <script>
+            $(document).ready(()=>{
+
+                /* I'm definately not doing this right but I'm too lazy to 
+                research how it's properly done. So for now this is how I'm gonna do it
+                */
+                {% for message in messages %}
+                    M.toast({html: '{{ message }}'})
+                {% endfor %}
+            })
+        </script>
+    {% endif %}
+
+    <!-- Container end  -->
+    
+{% endblock %}
