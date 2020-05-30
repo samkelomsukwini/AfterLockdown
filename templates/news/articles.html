@@ -3,6 +3,7 @@
 
 {% block title %}Hormme - Latest Headlines{% endblock %}
 
+
 {% block body %}
     {% if messages %}
         <script>
@@ -18,6 +19,15 @@
         </script>
     {% endif %}
 
+    <br>
+
+    <!-- Container start -->
+    <div class="container">
+        <h4 class="center">
+            <b>The latest news headlines from all over the world.</b><br><br>
+        </h4>
+    </div>
     <!-- Container end  -->
+    {% include 'news/article_cards.html' %}
     
 {% endblock %}

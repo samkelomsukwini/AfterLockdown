@@ -21,6 +21,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    # News URLs
+    path('n/', include('news.urls', namespace='news')),
+    
     # Submissions URLs
     path('s/', include('afterlockdown.urls', namespace='afterlockdown')),
     
