@@ -6,12 +6,10 @@
 </head>
 <body>
     <h1>Afterlockdown</h1>
-    {% if posts %}
-        {% for post in posts %}
-            <h1>{{ post.city }}</h1>
-        {% endfor %}
+    {% if is_mobile %}
+        <h1>Mobile</h1>
     {% else %}
-        <h1>None</h1>
+        <h1>Desktop</h1>
     {% endif %}
 </body>
 </html>
