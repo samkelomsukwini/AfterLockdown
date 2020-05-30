@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="title" content="Hormme Afterlockdown - What will you do after lockdown?">
+    <meta name="description" content="We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://horm.me">
+    <meta property="og:title" content="Hormme Afterlockdown - What will you do after lockdown?">
+    <meta property="og:description" content="We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://horm.me">
+    <meta property="twitter:title" content="Hormme Afterlockdown - What will you do after lockdown?">
+    <meta property="twitter:description" content="We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="{% static 'images/fav/apple-touch-icon-152x152.png' %}">
+    <meta name="msapplication-TileColor" content="#f28787">
+    <meta name="msapplication-TileImage" content="{% static 'images/fav/mstile-144x144.png' %}">
+    <link rel="icon" href="{% static 'images/fav/favicon-32x32.png' %}" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#f28787">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- CSS-->
+    <link href="{% static 'css/prism.css' %}" rel="stylesheet">
+    <link href="{% static 'css/redot-material.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link rel="stylesheet" href="{% static 'css/font-awesome-4.0.3.css' %}">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css"> -->
+    <link href="{% static 'css/material-icons.css' %}" rel="stylesheet">
+    <style>
+        ::selection{
+            background-color:#F44330;
+            color:#fff;
+        }
+    </style>
+    {% block stylesheet %}{% endblock %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+</head>
+<body>
+    <div id="app">
+        {% include 'snippets/navbar/navbar.html' %}
+    </div>
+
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            let app = document.getElementById('app');
+            app.addEventListener('contextmenu', e=>{
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script>
+        // Sidebar menu
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {
+                edge: 'left'
+            });
+        });
+        // FAB
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.fixed-action-btn');
+            var instances = M.FloatingActionButton.init(elems, {
+                direction:'top'
+            });
+        });
+        // Parallax
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.parallax');
+            var instances = M.Parallax.init(elems, {
+                responsiveThreshold:0
+            });
+        });
+        // Create post modal
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, {
+                dismissible: false,
+                opacity:0.7
+            });
+        });
+        // Dropdown
+            document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems, {
+                alignment:'right',
+                constrainWidth: false,
+                closeOnClick: false,
+                coverTrigger: false
+            });
+        });
+        // Tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.tooltipped');
+            var instances = M.Tooltip.init(elems, {
+                enterDelay:2000,
+            });
+        });
+    </script>
+    {% block javascript %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!-- Navbar start -->
+<div class="navbar-fixed">
+    <nav>
+        <div class="white nav-wrapper">
+            <a style="margin-top: 0.5%;" href="{% url 'index' %}" class="center brand-logo">
+                <img src="{% static 'images/logo@50px.png' %}" alt="Hormme Logo">
+            </a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="red-text lighten-2" href="{% url 'index' %}">Home</a></li>
+                <li><a class="red-text" href="#">News</a></li>
+                <li><a class="red-text" href="#">Covid19 Stats</a></li><!-- Dropdown Trigger -->
+                
+              
+            </ul>
+            <ul class="right">
+                <li>
+                    <a class="red-text dropdown-trigger" href="#" data-target="dropdown1">About<i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About section dropdown -->
+    <ul class="right">
+        <li><a class="red-text text-lighten-1 dropdown-trigger" href="#!" data-target="legal-items-dropdown">About<i class="material-icons right">arrow_drop_down</i></a></li>
+        {% include 'snippets/navbar/about.html' %}
+    </ul>
+    <!-- About section End -->
+</div>
+<!-- Navbar end -->
