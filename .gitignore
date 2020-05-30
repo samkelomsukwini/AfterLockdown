@@ -1,0 +1,5 @@
+settings.py
+*.jpg
+static-cdn
+media-cdn
+__pycache__
