@@ -1,0 +1,24 @@
+{% load static %}
+<!-- Create post modal -->
+  <div id="submitLink" class="modal">
+    <div class="modal-content">
+      <span class="modal-close card-title grey-text text-darken-4">
+        <i class="material-icons right">close</i>
+      </span>
+      <h4>Submit link</h4>
+      <div class="row">
+        <form method="POST" class="col s12">
+          {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12">
+              {{ submission_form.as_p }}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="waves-effect waves-light red btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- Create post modal end -->

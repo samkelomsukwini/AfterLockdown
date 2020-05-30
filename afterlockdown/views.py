@@ -34,7 +34,7 @@ def view_post(request, call_id):
 
         # redirect user to the post detail view after
         # the creation of new Submission object
-        return redirect('/s/{}'.format(call_id))
+        return redirect(f'/s/{call_id}')
 
     # form to be passed to template if request.method is GET
     submission_form = PostSubmitForm() 
@@ -44,7 +44,7 @@ def view_post(request, call_id):
         'post': submission
     }
 
-    return render(request, 'posts/post_detailed.html', context)
+    return render(request, 'posts/view/post_detailed.html', context)
 
 
 def post_call_id_generator(size=10, chars=string.ascii_letters + string.digits):
@@ -90,13 +90,28 @@ def create_submission(request, form):
         # 2. Check if all fields are filled
         if not form.is_valid():
             # Form contained errors
-            messages.error(request, 'Couldn\'t send your submission. Please try again.')
+            messages.error(request, 'Couldn\'t save your submission. Please try again.')
             return redirect('index')
         
         else:
             # Don't save yet
             submission = form.save(commit=False)
+            
+            # Submission text
+            body = request.POST['body'].lower()
+            post_prefix = 'After lockdown I want to '
 
+            # if/else appends pos_prefix to user text
+            if post_prefix in body:
+                # user already added the prefix
+                pass
+
+            else:
+                # concatenate user sub with prefix then insert 
+                # new string into DB as the body
+                new_submission_body = post_prefix+body
+                submission.body = new_submission_body
+            
             # generate call_id
             _call_id = post_call_id_generator()
 
@@ -109,5 +124,5 @@ def create_submission(request, form):
             # Insert the Submission object into DB
             form.save()
 
-            messages.success(request, 'Success')
+            messages.success(request, 'Success, you submission has been saved')
             return call_id

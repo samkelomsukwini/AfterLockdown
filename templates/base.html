@@ -43,7 +43,14 @@
 </head>
 <body>
     <div id="app">
-        {% include 'snippets/navbar/navbar.html' %}
+        <b>
+            {% include 'snippets/navbar/navbar.html' %}
+
+            {% include 'posts/create/submit.html' %}
+            {% include 'posts/create/create_submission_fab.html' %}
+
+            {% block body %}{% endblock %}
+        </b>
     </div>
 
     <script src="{% static 'js/materialize.min.js' %}"></script>
