@@ -18,8 +18,8 @@ def index(request):
         # Pass form and request to create_submission in afterlockdown app
         call_id = create_submission(request, submission_form)
 
-        # Redirect user to detailed view of post
-        return redirect(f'/s/{call_id}')
+        return redirect('index')
+        
     
     # Get divice operating system from meta data
     os = request.META['OS']
