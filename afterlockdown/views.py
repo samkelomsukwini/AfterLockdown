@@ -7,7 +7,7 @@ from django.http import Http404, HttpResponse, JsonResponse
 
 from django.shortcuts import redirect, render 
 
-# from .forms import PostSubmitForm
+from .forms import PostSubmitForm
 from .models import Post
 
 
@@ -37,7 +37,7 @@ def view_post(request, call_id):
         return redirect('/s/{}'.format(call_id))
 
     # form to be passed to template if request.method is GET
-    # submission_form = PostSubmitForm() 
+    submission_form = PostSubmitForm() 
 
     context = {
         'submission_form': submission_form,
