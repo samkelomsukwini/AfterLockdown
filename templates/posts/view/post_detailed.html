@@ -1,27 +1,27 @@
-{% extends 'base.html' %}
 {% load static %}
-
-{% block title %}Hormme - Afterlockdown{% endblock %}
-
-
-{% block body %}
 <!-- Container Start -->
 <div class="container">
     <!-- Row start -->
-    <div class="row">
-        <div class="center col s12 m6">
-            <!-- card start -->
-            <div class="card">
-                <div class="card-content">
-                    <p>{{ post.body }}</p>
-                    <p style="color: #616161 ;">- {{ post.city }}</p>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fa fa-twitter"></i></a>
+    <div class="row infinite-container">
+        {% for post in page_obj %}
+            <div class="center col s6 infinite-item">
+                <!-- card start -->
+                <div class="z-depth-4 card">
+                    <div class="card-content">
+                        <p>{{ post.body }}</p>
+                        <p style="color: #616161 ;">{{ post.city }}</p>
+                        <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fkgosiemang.pythonanywhere.com%2Fs%2F{{ post.call_id }}&via=vuyo_sukwini&text={{ post.body }}+-+What will+will+you+do+after+lockdown" class="btn-floating halfway-fab waves-effect waves-light red"><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
+                <!-- card end -->
             </div>
-            <!-- card end -->
-        </div>
+        {% endfor %}
     </div>
     <!-- Row end -->
 </div>
 <!-- Container end -->
-{% endblock %}
+
+
+{% include 'posts/infinite_scroll.html' %}
+<h4 class="center">You've reached the end. Submit you own post-lockdown aspirations.</h4>
+<br><br>

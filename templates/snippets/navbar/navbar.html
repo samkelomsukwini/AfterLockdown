@@ -1,19 +1,26 @@
 {% load static %}
 <!-- Navbar start -->
 <div class="navbar-fixed">
-    <nav>
+    <nav class="nav-extended">
         <div class="white nav-wrapper">
-            <a style="margin-top: 0.5%; margin-left: 1%;" href="{% url 'index' %}" class="left brand-logo">
+            <a style="margin-top: 0.5%; margin-left: 1%;" href="{% url 'index' %}" class="hide-on-med-and-down left brand-logo">
+                <a style="margin-top: 0.5%; margin-left: 1%;" href="{% url 'index' %}" class="hide-on-large-only center brand-logo">
                 <img src="{% static 'images/logo@50px.png' %}" alt="Hormme Logo">
             </a>
-            <ul  style="margin-right: 1%;" class="right hide-on-med-and-down">
+            <ul style="margin-right: 1%;" class="right hide-on-small-only">
                 <li><a class="red-text lighten-2" href="{% url 'index' %}">Home</a></li>
-                <li><a class="red-text" href="{% url 'news:get-articles' %}">News</a></li>
+                <!-- <li><a class="red-text" href="{% url 'news:get-articles' %}">News</a></li> -->
                 <li><a class="red-text" target="_blank" href="https://ncov2019.live/">Covid19 Stats</a></li><!-- Dropdown Trigger -->
-                
-              
+            </ul>
+        </div>
+
+        <div class="center white nav-content hide-on-large-only">
+            <ul class="tabs tabs-transparent">
+                <li class="tab"><a class="red-text lighten-2" href="{% url 'index' %}">Home</a></li>
+                <li class="tab"><a class="red-text" target="_blank" href="https://ncov2019.live/">Covid19 Stats</a></li>
             </ul>
         </div>
     </nav>
+
 </div>
 <!-- Navbar end -->

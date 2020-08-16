@@ -34,7 +34,7 @@ def view_post(request, call_id):
 
         # redirect user to the post detail view after
         # the creation of new Submission object
-        return redirect(f'/s/{call_id}')
+        return redirect('index')
 
     # form to be passed to template if request.method is GET
     submission_form = PostSubmitForm() 

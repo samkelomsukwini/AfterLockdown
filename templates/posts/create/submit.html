@@ -11,6 +11,7 @@
           {% csrf_token %}
           <div class="row">
             <div class="input-field col s12">
+              <input type="hidden" id="platform" name="platform" value="">
               {{ submission_form.as_p }}
             </div>
           </div>
@@ -22,3 +23,28 @@
     </div>
   </div>
 <!-- Create post modal end -->
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    let city = getCookie('city')
+
+    var cityInput = document.getElementById('city')
+    cityInput.value += '- '+city
+  });
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+</script>

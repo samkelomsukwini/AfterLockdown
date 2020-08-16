@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Hormme - Afterlockdown{% endblock %}
+{% block title %}Samkelo - After lockdown{% endblock %}
 
 {% block stylesheet %}
 <style>
@@ -27,12 +27,12 @@
     {% endif %}
 
     <!-- Container start -->
-    <div class="container">
+    <div class="hide-on-med-and-down container">
         <h4 class="center">
-            <b>COVID-19 has changed how we live our lives, isolating us from friends and family. We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?</b><br><br>
+            <b>COVID-19 has changed how we live our lives, isolating us from friends and family. I’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?</b><br><br>
         </h4>
         <div class="center">
-            <a target="_blank" href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fhorm.me%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=vuyo_sukwini&tw_p=followbutton" class="white-text z-depth-3 btn-large waves-effect waves-light blue"><i class="fa fa-twitter"></i> Follow @vuyo_sukwini</a>
+            <a target="_blank" href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fsamkelo.me%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=vuyo_sukwini&tw_p=followbutton" class="white-text z-depth-3 btn-large waves-effect waves-light blue"><i class="fa fa-twitter"></i> Follow @vuyo_sukwini</a>
         
             <a target="_blank" href="https://instagram.com/SamkeloMsukwini" class="white-text z-depth-3 btn-large waves-effect waves-light instagram-btn"><i class="fa fa-instagram"></i> Follow @SamkeloMsukwini</a>
         </div>
@@ -40,6 +40,24 @@
         <br>
         <br>
     </div>
+
+    <div style="margin-top: 15%;" class="hide-on-large-only"></div>
     <!-- Container end  -->
     {% include 'posts/view/post.html' %}
+    <!-- Container start -->
+    <div class="hide-on-large-only container">
+        <h5 class="center">
+            <b>COVID-19 has changed how we live our lives, isolating us from friends and family. I’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?</b><br><br>
+        </h5>
+        <div class="center">
+            <a target="_blank" href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fsamkelo.me%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=vuyo_sukwini&tw_p=followbutton" class="white-text z-depth-3 btn-small waves-effect waves-light blue"><i class="fa fa-twitter"></i> Follow @vuyo_sukwini</a>
+        
+        </div><br>
+        <div class="center">
+            
+            <a target="_blank" href="https://instagram.com/SamkeloMsukwini" class="white-text z-depth-3 btn-small waves-effect waves-light instagram-btn"><i class="fa fa-instagram"></i> Follow @SamkeloMsukwini</a>
+        </div>
+        <br>
+        <br>
+    </div>
 {% endblock %}

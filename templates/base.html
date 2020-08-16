@@ -10,13 +10,12 @@
     <meta name="description" content="We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://horm.me">
+    <meta property="og:url" content="https://samkelo.me">
     <meta property="og:title" content="Hormme Afterlockdown - What will you do after lockdown?">
     <meta property="og:description" content="We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://horm.me">
-    <meta property="twitter:title" content="Hormme Afterlockdown - What will you do after lockdown?">
+    <meta property="twitter:url" content="https://samkelo.me">
     <meta property="twitter:description" content="We’ve collected post-quarantine aspirations from around the globe. What will you do after lockdown?">
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="{% static 'images/fav/apple-touch-icon-152x152.png' %}">
@@ -42,6 +41,7 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
 </head>
 <body>
+
     <div id="app">
         <b>
             {% include 'snippets/navbar/navbar.html' %}
@@ -61,6 +61,27 @@
                 e.preventDefault();
             });
         });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        platformName = navigator.platform;
+        let platform = document.getElementById('platform').setAttribute('value', platformName);
+    });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data =>{ 
+                setCookie('city', data.city, 20)
+            });
+        });
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
     </script>
     <script>
         // Sidebar menu

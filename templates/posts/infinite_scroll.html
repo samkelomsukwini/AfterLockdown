@@ -1,0 +1,42 @@
+{% load static %}
+<div class="container">
+    <div class="center-align">
+
+        {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+        {% endif %}
+        <div class="d-flex justify-content-center" style="display:none;">
+            
+            <div class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'js/infinite.min.js' %}"></script>
+        <script>
+            var infinite = new Waypoint.Infinite({
+                element: $('.infinite-container')[0],
+                handler: function(direction) {
+
+            },
+            offset: 'bottom-in-view',
+
+            onBeforePageLoad: function () {
+            $('.spinner-border').show();
+            },
+            onAfterPageLoad: function () {
+            $('.spinner-border').hide();
+            }
+
+            });    
+        </script>
+    </div>
+</div>

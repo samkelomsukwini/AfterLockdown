@@ -7,5 +7,5 @@ class Post(models.Model):
     call_id = models.CharField(max_length=160, null=False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.body
+    # def __str__(self):
+    #     return self.body
