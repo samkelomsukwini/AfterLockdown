@@ -6,3 +6,7 @@ class OperatingSystem(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class PostCount(models.Model):
+    count = models.PositiveIntegerField(default=0, null=False, blank=False)

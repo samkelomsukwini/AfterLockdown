@@ -1,12 +1,18 @@
 {% load static %}
 <!-- Container Start -->
+<style>
+    .card {
+  border-radius: 8px;
+  border: 2px solid #ccc;
+}
+</style>
 <div class="container">
     <!-- Row start -->
     <div class="row infinite-container">
         {% for post in page_obj %}
             <div class="center col s6 infinite-item">
                 <!-- card start -->
-                <div class="z-depth-4 card">
+                <div class="z-depth-1 card">
                     <div class="card-content">
                         <p>{{ post.body }}</p>
                         <p style="color: #616161 ;">{{ post.city }}</p>

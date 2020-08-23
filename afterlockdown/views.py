@@ -5,7 +5,9 @@ from django.contrib import messages
 
 from django.http import Http404, HttpResponse, JsonResponse
 
-from django.shortcuts import redirect, render 
+from django.shortcuts import redirect, render
+
+from logistics.models import PostCount
 
 from .forms import PostSubmitForm
 from .models import Post
@@ -16,7 +18,7 @@ def get_posts(request):
     Gets and returns all `Post` objects
     '''
     submissions = Post.objects.all().order_by('-created')
-    
+
     return submissions
 
 def view_post(request, call_id):
@@ -37,7 +39,7 @@ def view_post(request, call_id):
         return redirect('index')
 
     # form to be passed to template if request.method is GET
-    submission_form = PostSubmitForm() 
+    submission_form = PostSubmitForm()
 
     context = {
         'submission_form': submission_form,
@@ -70,7 +72,7 @@ def check_call_id_exists(call_id):
 
         # New call_id checked against all Submission objects
         check_call_id_exists(new_call_id)
-    
+
     except:
         # This means there has been an error which means
         # that there's no Submission object with call_id == call_id
@@ -92,11 +94,11 @@ def create_submission(request, form):
             # Form contained errors
             messages.error(request, 'Couldn\'t save your submission. Please try again.')
             return redirect('index')
-        
+
         else:
             # Don't save yet
             submission = form.save(commit=False)
-            
+
             # Submission text
             body = request.POST['body'].lower()
             post_prefix = 'After lockdown I want to '
@@ -107,11 +109,11 @@ def create_submission(request, form):
                 pass
 
             else:
-                # concatenate user sub with prefix then insert 
+                # concatenate user sub with prefix then insert
                 # new string into DB as the body
                 new_submission_body = post_prefix+body
                 submission.body = new_submission_body
-            
+
             # generate call_id
             _call_id = post_call_id_generator()
 
@@ -120,6 +122,13 @@ def create_submission(request, form):
 
             # Assign call_id to Post object
             submission.call_id = call_id
+
+            try:
+                obj = PostCount.objects.get(id=1)
+                obj.count +=1
+                obj.save()
+            except PostCount.DoesNotExist:
+                obj = PostCount.objects.create(count=1)
 
             # Insert the Submission object into DB
             form.save()
