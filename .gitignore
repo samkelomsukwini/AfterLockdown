@@ -1,5 +1,5 @@
 settings.py
 *.jpg
-static-cdn
+static-local
 media-cdn
 __pycache__
